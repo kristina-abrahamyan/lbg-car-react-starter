@@ -9,7 +9,7 @@ services:
       - backend
 
   backend:
-    build: ./lbg-car-spring-app
+    build: ./lbg-car-spring-app-starter
     ports:
       - "8000:8000"
     depends_on:
