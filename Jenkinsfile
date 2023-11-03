@@ -10,7 +10,7 @@ pipeline {
 
         stage('Build Frontend Docker Image') {
             steps {
-                sh 'docker build -t my-frontend-app:latest -f Dockerfile .'
+                sh 'docker build -t akristys1/my-frontend-app:latest -f Dockerfile .'
             }
         }
 
@@ -34,7 +34,7 @@ pipeline {
 
         stage('Build Backend Docker Image') {
             steps {
-                sh 'docker build -t my-backend-app:latest -f Dockerfile .'
+                sh 'docker build -t akristys1/my-backend-app:latest -f Dockerfile .'
             }
         }
 
