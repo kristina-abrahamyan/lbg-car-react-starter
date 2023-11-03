@@ -1,29 +1,28 @@
-version: '3.8'
+version: '3'
 
 services:
   frontend:
-    build:
-      context: ./path/to/frontend
-      dockerfile: Dockerfile
+    build: ./lbg-car-react-starter
     ports:
-      - "80:80" 
+      - "80:80"
+    depends_on:
+      - backend
 
   backend:
-    build:
-      context: ./path/to/backend
-      dockerfile: Dockerfile
+    build: ./lbg-car-spring-app
     ports:
-      - "8000:8000" 
+      - "8000:8000"
+    depends_on:
+      - database
 
-  db:
+  database:
     image: mysql:latest
-    volumes:
-      - db_data:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: example
-      MYSQL_DATABASE: your_database
-      MYSQL_USER: your_user
-      MYSQL_PASSWORD: your_password
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
 
 volumes:
-  db_data:
+  mysql_data:
