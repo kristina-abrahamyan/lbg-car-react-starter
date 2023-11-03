@@ -19,7 +19,8 @@ pipeline {
 
         stage('Deploy Frontend') {
             steps {
-                sh 'docker compose -f docker-compose.yaml up -d'
+		sh '/usr/local/bin/docker-compose -f docker-compose.yaml up -d'
+		sh 'docker-compose up -d'
             }
         }
 
