@@ -10,15 +10,10 @@ pipeline {
 
         stage('Build Frontend Docker Image') {
             steps {
-                sh 'docker build -t akristys1/my-frontend-app:latest -f Dockerfile .'
-            }
-        }
-
-        stage('Push Frontend Docker Image') {
-            steps {
-		withDockerRegistry([credentialsId: 'dockerhub_id', url: 'https://index.docker.io/v1/']) {
+                withDockerRegistry([credentialsId: 'dockerhub_id', url: 'https://index.docker.io/v1/']) {
                     sh 'docker build -t akristys1/my-frontend-app:latest -f Dockerfile .'
-		    sh 'docker push akristys1/my-frontend-app:latest'
+                    sh 'docker push akristys1/my-frontend-app:latest'
+                }
             }
         }
 
@@ -37,12 +32,6 @@ pipeline {
         stage('Build Backend Docker Image') {
             steps {
                 sh 'docker build -t akristys1/my-backend-app:latest -f Dockerfile .'
-            }
-        }
-
-        stage('Push Backend Docker Image') {
-            steps {
-                sh 'docker push akristys1/my-backend-app:latest'
             }
         }
 
