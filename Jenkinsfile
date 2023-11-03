@@ -16,7 +16,9 @@ pipeline {
 
         stage('Push Frontend Docker Image') {
             steps {
-                sh 'docker push akristys1/my-frontend-app:latest'
+		withDockerRegistry([credentialsId: 'dockerhub_id', url: 'https://index.docker.io/v1/']) {
+                    sh 'docker build -t akristys1/my-frontend-app:latest -f Dockerfile .'
+		    sh 'docker push akristys1/my-frontend-app:latest'
             }
         }
 
