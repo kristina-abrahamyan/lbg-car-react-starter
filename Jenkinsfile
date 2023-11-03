@@ -16,7 +16,7 @@ pipeline {
 
         stage('Push Frontend Docker Image') {
             steps {
-                sh 'docker push my-frontend-app:latest'
+                sh 'docker push akristys1/my-frontend-app:latest'
             }
         }
 
@@ -40,7 +40,7 @@ pipeline {
 
         stage('Push Backend Docker Image') {
             steps {
-                sh 'docker push my-backend-app:latest'
+                sh 'docker push akristys1/my-backend-app:latest'
             }
         }
 
