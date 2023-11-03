@@ -19,7 +19,7 @@ pipeline {
 
         stage('Deploy Frontend') {
             steps {
-                sh 'docker-compose -f docker-compose.ymal up -d'
+                sh 'docker-compose -f docker-compose.yaml up -d'
             }
         }
 
@@ -37,7 +37,7 @@ pipeline {
 
         stage('Deploy Backend') {
             steps {
-                sh 'docker-compose -f docker-compose.ymal up -d'
+                sh 'docker-compose -f docker-compose.yaml up -d'
             }
         }
     }
