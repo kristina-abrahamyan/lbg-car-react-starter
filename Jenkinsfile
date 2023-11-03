@@ -19,7 +19,7 @@ pipeline {
 
         stage('Deploy Frontend') {
             steps {
-		sh '~/github/sprint/lbg-car-react-starter/docker-compose -f docker-compose.yaml up -d'
+		sh '~/github/sprint/lbg-car-react-starter/docker compose -f docker-compose.yaml up -d'
             }
         }
 
