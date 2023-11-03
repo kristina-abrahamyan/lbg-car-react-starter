@@ -10,7 +10,7 @@ pipeline {
 
         stage('Build Frontend Docker Image') {
             steps {
-                sh 'docker build -t my-frontend-app:latest -f lbg-car-react-starter/Dockerfile .'
+                sh 'docker build -t my-frontend-app:latest -f Dockerfile .'
             }
         }
 
@@ -22,7 +22,7 @@ pipeline {
 
         stage('Deploy Frontend') {
             steps {
-                sh 'docker-compose -f lbg-car-react-starter/docker-compose.ymal up -d'
+                sh 'docker-compose -f docker-compose.ymal up -d'
             }
         }
 
@@ -34,7 +34,7 @@ pipeline {
 
         stage('Build Backend Docker Image') {
             steps {
-                sh 'docker build -t my-backend-app:latest -f lbg-car-spring-app/Dockerfile .'
+                sh 'docker build -t my-backend-app:latest -f Dockerfile .'
             }
         }
 
@@ -46,7 +46,7 @@ pipeline {
 
         stage('Deploy Backend') {
             steps {
-                sh 'docker-compose -f lbg-car-spring-app/docker-compose.ymal up -d'
+                sh 'docker-compose -f docker-compose.ymal up -d'
             }
         }
     }
